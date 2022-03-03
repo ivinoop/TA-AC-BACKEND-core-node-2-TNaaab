@@ -15,7 +15,6 @@ function handleRequest(req, res) {
       res.end(store);
     }
     if(req.method === 'POST' && req.url === '/form') {
-      res.setHeader('content-type', '');
       let parsedData = qs.parse(store);
       res.end(JSON.stringify(parsedData));
     }
