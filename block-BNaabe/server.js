@@ -11,12 +11,12 @@ function handleRequest(req, res) {
   });
   req.on('end', () => {
 
-    if(req.method === 'GET' && req.url === '/' && contentFormat === 'application/json') {
+    if(req.method === 'POST' && req.url === '/' && contentFormat === 'application/json') {
       res.writeHead(201, {'content-type':'application/json'});
       res.end(store);
     }
 
-    if(req.method === 'GET' && req.url === '/' && contentFormat === 'application/x-www-form-urlencoded') {
+    if(req.method === 'POST' && req.url === '/' && contentFormat === 'application/x-www-form-urlencoded') {
       res.writeHead(201, {'content-type':'text/plain'});
       let parsedData = qs.parse(store);
       res.end(parsedData.captain);
